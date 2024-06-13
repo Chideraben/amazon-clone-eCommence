@@ -1,0 +1,24 @@
+.container{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #132133;
+    top: 0;
+    margin-top: -10px;
+    z-index: 2;
+    width: 100%;
+    
+}
+.child_container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    
+}
