@@ -41,7 +41,6 @@ function App() {
     <Router >
       <AmazonNav />
       <Routes>
-        
       <Route 
           path= '/'
           element= {user? <Navigate to ="/home" />: <Login/>}
