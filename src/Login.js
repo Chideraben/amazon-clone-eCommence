@@ -1,5 +1,5 @@
 import "./Login.css"
-import React, {useState, useEffect } from 'react'
+import React, {useState } from 'react'
 import {Link, useNavigate } from 'react-router-dom'
 import { auth } from "./firebase";
 import {ToastContainer, toast} from 'react-toastify'

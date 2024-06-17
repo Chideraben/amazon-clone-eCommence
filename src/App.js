@@ -40,11 +40,10 @@ function App() {
   return (  
     <Router >
       <AmazonNav />
-      <Login/>
       <Routes>
       <Route 
           path= '/'
-          element= {user? <Navigate to ="/home" />: <Login/>}
+          element= {user ? <Navigate to='/home'/> : <Login/>}
         />
        <Route 
           path= '/home'
@@ -69,9 +68,8 @@ function App() {
         />
       </Routes>
        {/*<RouterProvider router={router}/>*/}
-        <LastNav />
 
-     
+     <LastNav/>
     </Router>
   );
 }
