@@ -40,6 +40,7 @@ function App() {
   return (  
     <Router >
       <AmazonNav />
+      <Login/>
       <Routes>
       <Route 
           path= '/'
