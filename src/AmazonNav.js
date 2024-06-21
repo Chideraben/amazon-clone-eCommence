@@ -1,6 +1,5 @@
 import "./AmazonNav.css"
 import React from 'react'
-import {IoSearch} from "react-icons/io5"
 import {FiShoppingCart} from "react-icons/fi"
 import { useStateValue } from "./Stateprovider"
 import { Link} from "react-router-dom"
@@ -35,7 +34,7 @@ function AmazonNav(){
                 <div className="header_search">
 
                     <input className="search_input" type="text" placeholder="Search Amazon" />
-                    <IoSearch className="search_icon"/>
+                    <p className="search_icon"></p>
                 </div>
 
                 <div className="header_nav">
