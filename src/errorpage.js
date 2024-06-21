@@ -15,7 +15,7 @@ function Error() {
         <p className="wrong">WRONG!</p>
         <button
           onClick={() => {
-            navigate("/home");
+            navigate("/");
           }}
           className="back-home"
         >

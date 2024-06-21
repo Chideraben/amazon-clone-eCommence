@@ -67,12 +67,14 @@
 .header_option1{
     font-size: 12px;
     font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
 }
 .header_option2{
     font-size: 14px;
     font-family: sans-serif;
     font-weight: 800;
     list-style: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .header_basket{
     display: flex;

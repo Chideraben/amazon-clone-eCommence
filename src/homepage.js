@@ -13,7 +13,7 @@ function Homepage(){
     useEffect(()=>{
         setTimeout(() => {
            setLoading(false)
-       },3000)
+       },6000)
        
    })
    

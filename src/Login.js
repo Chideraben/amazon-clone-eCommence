@@ -13,13 +13,7 @@ function Login() {
     const [ emailError, setEmailError] = useState("")
     const [loading, setLoading] = useState(false)
 
-    const handleSignupClick = () =>{
-        setLoading(true)
-    }
    
-        setTimeout(() => {
-            setLoading(false)
-        },3000)
         
       
    
@@ -30,10 +24,10 @@ function Login() {
         
         signInWithEmailAndPassword(auth,email,password)
         .then(auth => {
-            navigate('/home')
+            navigate('/')
         })
         .catch(error => alert(error.message));
-        toast.success("Thanks for signing In")
+        toast.success("Sign In successfull")
     }
 
    
@@ -81,7 +75,6 @@ function Login() {
                                 <h5>E-mail</h5>
                                 <input type="text"
                                     value={email} 
-                                    placeholder="Enter Email"
                                     onChange={e =>setEmail(e.target.value)}
                                     onBlur={handleEmailBlur}
                                     required    
@@ -90,7 +83,6 @@ function Login() {
                                 <h5>Password</h5>
                                 <input type="password" 
                                     value={password} 
-                                    placeholder="Passcode"
                                     onChange={e =>setPassword(e.target.value)}
                                     onBlur={handlePasswordBlur}
                                     required
@@ -106,7 +98,7 @@ function Login() {
                             </p>
                             <Link to="/signup">
                             
-                                <button className="login_registerButton">Create Your Amazon Account</button>
+                                <button className="login_registerButton" >Create Your Amazon Account</button>
                             </Link>
                         </div>
                       <ToastContainer/>

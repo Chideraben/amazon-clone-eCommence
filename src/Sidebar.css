@@ -23,13 +23,13 @@
 }
 .menu-item{
     display: inline-block;
-    max-width: 120px;
-    padding: 20px;
+    max-width: 90px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px;
     margin: 0 5px;
     text-align: center;
     flex-shrink: 0;
     background-color: transparent;
     border: none;
     color: white;
-    font-family: "Roboto", sans-serif;
 }

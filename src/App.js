@@ -44,12 +44,9 @@ function App() {
     
       <Routes>
        
-        <Route
-         path="Amazon/"
-         element={user ? <Navigate to="/home" /> : <Login/> }
-        />
+        
         <Route 
-            path= '/home'
+            path= '/'
             element= {<Homepage/>}
         />
         <Route 

@@ -22,12 +22,5 @@
 }
 a{
     color: white;
-}
-.writter{
-    background-color: #131921;
-    color: white;
-    font-size: 13px;
-    font-weight: 100;
-    font-family: sans-serif;
-    width: 100%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

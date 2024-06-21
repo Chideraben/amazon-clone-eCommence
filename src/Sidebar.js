@@ -19,8 +19,7 @@ function Sidebar(){
                     <div className='menu-item'>NewReleases</div>
                     <div className='menu-item'>Book</div>
                     <div className='menu-item'>Home</div>
-                    <div className='menu-item'>Health&Household</div>
-                    <div className='menu-item'>PC</div>
+                    <div className='menu-item'>Health & Household</div>
                 </div>
                  
             </div>
