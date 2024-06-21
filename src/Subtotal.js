@@ -1,16 +1,15 @@
 import React from "react";
-import CurrencyFormat from "react-currency-format";
 import { useStateValue} from "./Stateprovider"
 import "./Subtotal.css"
 import { getBasketTotal } from "./reducer";
 import {Link } from 'react-router-dom'
-
+import NumberFormat, { NumberFormatBase } from 'react-number-format'
 function Subtotal() {
     const [{basket}, dispatch] = useStateValue();
 
     return(
         <div className="subtotal">
-            <CurrencyFormat
+            <NumberFormatBase
             renderText = {(value) => (
                 <>
                 <p>
@@ -31,7 +30,7 @@ function Subtotal() {
             />
 
             <button>
-                <Link to="/errorpage">
+                <Link to="Amazon/errorpage">
                     Proceed to Checkout
                 </Link>
             </button>

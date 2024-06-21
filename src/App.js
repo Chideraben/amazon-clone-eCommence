@@ -5,12 +5,13 @@ import Login from './Login';
 import AmazonNav from './AmazonNav'
 import Checkout from './Checkout';
 import Sidebar from './Sidebar'
-import LastNav from './Last'
+import LastNav from './Footer'
 import {BrowserRouter as Router, Routes , Route, Navigate} from 'react-router-dom'
 import { auth } from './firebase';
 import { useStateValue } from './Stateprovider';
 import Payment from './payment'
 import Error from './errorpage'
+import SignUp from './SignUp';
 //import {  createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
@@ -38,20 +39,26 @@ function App() {
   },[])
 
   return (  
-    <Router >
+    <Router>
       <AmazonNav />
+    
       <Routes>
-      <Route 
-          path= '/'
-          element= {user ? <Navigate to='/home'/> : <Login/>}
+       
+        <Route
+         path="Amazon/"
+         element={user ? <Navigate to="/home" /> : <Login/> }
         />
-       <Route 
-          path= '/home'
-          element= {<Homepage/>}
+        <Route 
+            path= '/home'
+            element= {<Homepage/>}
         />
         <Route 
             path= '/login'
             element= {<Login/>}
+        />
+        <Route 
+          path= "/signup"
+          element={<SignUp/>}
         />
         <Route 
             path= '/checkout'
@@ -66,8 +73,8 @@ function App() {
           path = "/errorpage"
           element = {<Error/>}
         />
+       
       </Routes>
-       {/*<RouterProvider router={router}/>*/}
 
      <LastNav/>
     </Router>

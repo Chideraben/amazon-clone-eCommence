@@ -123,14 +123,17 @@ ul, li , .link{
     }
     .header_nav{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        width: auto;
+        justify-content: start;
+        align-items: start;
+        margin-left: -50px;
+        text-align: start;
     }
+    
     .basket{
         font-size: 30px;
         width:27px;
     }
+    
     .header_numder{
         font-size: 10px;
         font-weight: 800;
@@ -139,9 +142,8 @@ ul, li , .link{
     }
     .header_option{
         display: flex;
-        flex-direction: column;
-        justify-content: start;
-        margin-left: 20px;
+       margin-left: -30px;
+        
     }
     .header_search{
         display: none;

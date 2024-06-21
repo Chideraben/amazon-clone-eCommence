@@ -33,10 +33,13 @@
 .login_container > form > input {
     height: 30px;
     margin-bottom: 10px;
-    background-color: white;
     width: 98%;
-    border: none;
-    border-bottom:1px solid black ;
+    border-radius: 3px;
+    border-bottom: 1px solid rgb(109, 107, 107);
+}
+
+.placeholder{
+    font-size: smaller;
 }
 .login_container > p {
     margin-bottom: 15px;

@@ -3,6 +3,11 @@ import { FaBars } from "react-icons/fa6"
 import { useState } from 'react';
 import './ToggleSidebar.css'
 import {Link} from 'react-router-dom'
+import {IoIosHome} from 'react-icons/io'
+import {MdLightMode} from 'react-icons/md'
+import {FaFirstOrderAlt} from 'react-icons/fa'
+import {CgProfile} from 'react-icons/cg'
+import {MdContactMail} from 'react-icons/md'
 function ToggleSidebar(){
     const [isOpen , setIsOpen] = useState(false);
     
@@ -15,32 +20,27 @@ function ToggleSidebar(){
           
         <div className='old_container'>
             <div >
-                <button onClick={HandleToggle}>
-                 <FaBars className="toggle"/>
-                </button>
+               
+                 <FaBars className="toggle"  onClick={HandleToggle}/>
+               
             </div>
            
             <div   className={`sidebar ${isOpen ?  'active' : 'non-active'}`} >
                 <div className='cancel'>
-                    <button onClick={HandleToggle}>
-                        <FaXmark className="toggle" />
-                    </button>
+                   
+                        <FaXmark className="toggle"  onClick={HandleToggle} />
+                    
                     
                 </div>
                 <div className='buttons'>
 
                    
-                    <Link to="/errorpage" className='side-btn'><button className='side-btn'>Deals</button></Link>
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>Amazon Basics</button></Link>
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>Best Seller</button></Link>
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>Livestreams</button></Link>
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>Music</button></Link>
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>Vedio</button></Link>
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>New Releases</button></Link>       
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>Book</button></Link>
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>Home</button></Link>
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>Health & Household</button></Link>
-                    <Link to="/errorpage" className='side-btn'> <button className='side-btn'>PC</button></Link>
+                    <Link to="/errorpage" ><IoIosHome/> <button className='side-btn'>Home</button></Link>
+                    <Link to="/errorpage"><MdLightMode/> <button className='side-btn'>Theme</button></Link>
+                    <Link to="/errorpage"> <FaFirstOrderAlt/> <button className='side-btn'>Orders</button></Link>
+                    <Link to="/errorpage"> <CgProfile/> <button className='side-btn'>Profile</button></Link>
+                    <Link to="/errorpage"> <MdContactMail/> <button className='side-btn'>Contact-Us</button></Link>
+                  
                 </div>
                
             </div>

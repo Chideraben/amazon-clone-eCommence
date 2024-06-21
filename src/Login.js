@@ -1,5 +1,5 @@
 import "./Login.css"
-import React, {useState } from 'react'
+import React, {useState,useEffect } from 'react'
 import {Link, useNavigate } from 'react-router-dom'
 import { auth } from "./firebase";
 import {ToastContainer, toast} from 'react-toastify'
@@ -11,9 +11,20 @@ function Login() {
     const [password , setPassword] = useState('')
     const [PasswordError , setPasswordError] = useState("")
     const [ emailError, setEmailError] = useState("")
-    
+    const [loading, setLoading] = useState(false)
+
+    const handleSignupClick = () =>{
+        setLoading(true)
+    }
    
-    const signIn = e => {
+        setTimeout(() => {
+            setLoading(false)
+        },3000)
+        
+      
+   
+   
+    const signIn =(e) => {
         e.preventDefault();
 
         
@@ -25,18 +36,7 @@ function Login() {
         toast.success("Thanks for signing In")
     }
 
-    const register = e => {
-        e.preventDefault();
-        createUserWithEmailAndPassword(auth, email,password)
-        .then((auth) => {
-            //succesfully created a new user with email and password
-            if(auth){
-                navigate('/home')
-            }
-        })
-        .catch(error=> alert(error.message));
-        toast.success(`Thanks for registering`)
-    }
+   
     const handleEmailBlur =(e)=>{
         if(
             e.target.value === " " ||
@@ -64,7 +64,7 @@ function Login() {
         <div className="login">
            
               
-                    <Link to="/home">
+                    <Link to="/">
                         <img 
                             className="login_logo"
                             alt="Amazon"
@@ -81,6 +81,7 @@ function Login() {
                                 <h5>E-mail</h5>
                                 <input type="text"
                                     value={email} 
+                                    placeholder="Enter Email"
                                     onChange={e =>setEmail(e.target.value)}
                                     onBlur={handleEmailBlur}
                                     required    
@@ -89,9 +90,11 @@ function Login() {
                                 <h5>Password</h5>
                                 <input type="password" 
                                     value={password} 
+                                    placeholder="Passcode"
                                     onChange={e =>setPassword(e.target.value)}
                                     onBlur={handlePasswordBlur}
                                     required
+                                    
                                 />
                               {PasswordError && <div className="error_message">{PasswordError}</div>}
                               <button type="submit" onClick={signIn} className="login_signInButton">Sign In</button>
@@ -101,7 +104,10 @@ function Login() {
                               By signing-in you agree to the AMAZON CLONE Condition of Use & Sale. Please see our Privacy Notice,
                               our Cookies Notice and our Interest-Based Ads Notice. 
                             </p>
-                            <button className="login_registerButton" onClick={register}>Create Your Amazon Account</button>
+                            <Link to="/signup">
+                            
+                                <button className="login_registerButton">Create Your Amazon Account</button>
+                            </Link>
                         </div>
                       <ToastContainer/>
             
