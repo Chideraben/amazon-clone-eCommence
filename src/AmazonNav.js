@@ -73,7 +73,7 @@ function AmazonNav(){
                         
                     <Link to={!user && '/login'} className="link">
                         <ul className="header_option" onClick={handleAuthentication}>
-                            <li className="header_option1" >Hello {!user ? 'Guest': user.email } </li>
+                            <li className="header_option1" >Hello {!user ? 'Guest': 'User' } </li>
                             <li className="header_option2"  >{user ? 'SignOut' : 'SignIn'} </li>
                            
                         </ul>
