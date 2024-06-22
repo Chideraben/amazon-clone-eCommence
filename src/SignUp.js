@@ -26,14 +26,14 @@ function SignUp() {
       
    
    
-        const register =( e) => {
+        const register =(e) => {
             e.preventDefault();
-            createUserWithEmailAndPassword(auth, email,password)
+            createUserWithEmailAndPassword(auth,email,password)
             .then((auth) => {
                 //succesfully created a new user with email and password
-                if(auth){
+               
                     navigate('/')
-                }
+              
             })
             .catch(error=> alert(error.message));
             toast.success("Sign Up successfull")
@@ -123,10 +123,8 @@ function SignUp() {
                               By signing-in you agree to the AMAZON CLONE Condition of Use & Sale. Please see our Privacy Notice,
                               our Cookies Notice and our Interest-Based Ads Notice. 
                             </p>
-                            <Link to="/signup">
                             
                                 <button className="login_registerButton" onclick={register}>Create Your Amazon Account</button>
-                            </Link>
                         </div>
                       <ToastContainer/>
             

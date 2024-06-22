@@ -20,8 +20,6 @@ function Login() {
    
     const signIn =(e) => {
         e.preventDefault();
-
-        
         signInWithEmailAndPassword(auth,email,password)
         .then(auth => {
             navigate('/')
