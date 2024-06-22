@@ -10,8 +10,6 @@ function SignUp() {
     const [email, setEmail] = useState("");
     const [password , setPassword] = useState('')
     const [PasswordError , setPasswordError] = useState("")
-    const [username, setUsername] = useState("")
-    const [usernameError, setUsernameError] = useState("")
     const [ emailError, setEmailError] = useState("")
     const [loading, setLoading] = useState(false)
 
@@ -31,9 +29,10 @@ function SignUp() {
             createUserWithEmailAndPassword(auth,email,password)
             .then((auth) => {
                 //succesfully created a new user with email and password
-               
+                if(auth){
                     navigate('/')
-              
+                }
+                else{alert("error")}
             })
             .catch(error=> alert(error.message));
             toast.success("Sign Up successfull")
@@ -62,15 +61,7 @@ function SignUp() {
         }
     }
 
-    const handleUserNameBlur =(e)=>{
-        if( e.target.value === " " )
-        {
-            setUsernameError("Please enter your Username.")
-        } 
-        else{
-            setUsernameError("")
-        }
-    }
+    
     return(
         
         <div className="login">
@@ -90,15 +81,7 @@ function SignUp() {
                             <h1>Sign-Up</h1>
 
                             <form>
-                                <h5>Username</h5>
-                                <input 
-                                    value={username} 
-                                    onChange={e =>setUsername(e.target.value)}
-                                    onBlur={handleUserNameBlur}
-                                    required    
-                                />
-                                {usernameError && <div className="error_message">{usernameError}</div>}
-
+                             
                                 <h5>E-mail</h5>
                                 <input type="text"
                                     value={email} 

@@ -4,6 +4,7 @@ import {Link, useNavigate } from 'react-router-dom'
 import { auth } from "./firebase";
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Loader from "./Loader";
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, GoogleAuthProvider , signInWithPopup, updateProfile} from "firebase/auth"
 function Login() {
     const navigate = useNavigate()
@@ -13,7 +14,12 @@ function Login() {
     const [ emailError, setEmailError] = useState("")
     const [loading, setLoading] = useState(false)
 
-   
+    useEffect(()=>{
+        setTimeout(() => {
+           setLoading(false)
+       },6000)
+       
+   })
         
       
    
@@ -95,8 +101,10 @@ function Login() {
                               our Cookies Notice and our Interest-Based Ads Notice. 
                             </p>
                             <Link to="/signup">
-                            
+                            {loading?(<Loader/>) : (
                                 <button className="login_registerButton" >Create Your Amazon Account</button>
+                            )}
+                                
                             </Link>
                         </div>
                       <ToastContainer/>
