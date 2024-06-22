@@ -36,6 +36,7 @@
 .side-btn  {
     color: rgb(245, 199, 199);
     font-family: "Lato" sans-serif;
+    border-bottom: 1px solid #14171b;
     width: 180px;
     height: 20px;
     text-align: start;
