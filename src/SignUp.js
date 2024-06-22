@@ -29,10 +29,7 @@ function SignUp() {
             createUserWithEmailAndPassword(auth,email,password)
             .then((auth) => {
                 //succesfully created a new user with email and password
-                if(auth){
                     navigate('/')
-                }
-                else{alert("error")}
             })
             .catch(error=> alert(error.message));
             toast.success("Sign Up successfull")
@@ -107,7 +104,7 @@ function SignUp() {
                               our Cookies Notice and our Interest-Based Ads Notice. 
                             </p>
                             
-                                <button className="login_registerButton" onclick={register}>Create Your Amazon Account</button>
+                                <button className="login_registerButton" onclick={ register}>Create Your Amazon Account</button>
                         </div>
                       <ToastContainer/>
             
