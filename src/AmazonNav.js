@@ -1,6 +1,6 @@
 import "./AmazonNav.css"
 import React,{useEffect, useState} from 'react'
-import {CiSearch} from "react-icons/ci"
+import { FaSistrix } from "react-icons/fa"
 import {FiShoppingCart} from "react-icons/fi"
 import { useStateValue } from "./Stateprovider"
 import { Link} from "react-router-dom"
@@ -65,7 +65,7 @@ function AmazonNav(){
                         value={query}
                         onChange={(e) =>{ setQuery(e.target.value)}}
                     />
-                    <CiSearch className="search_icon" onClick={handleSearch}/>
+                    <FaSistrix className="search_icon" onClick={handleSearch}/>
                 </div>
 
                 <div className="header_nav">
