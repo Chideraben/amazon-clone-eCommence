@@ -30,7 +30,7 @@ function Subtotal() {
             />
 
             <button>
-                <Link to="Amazon/errorpage">
+                <Link to="/errorpage">
                     Proceed to Checkout
                 </Link>
             </button>
