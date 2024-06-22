@@ -109,6 +109,7 @@ function AmazonNav(){
                         </Link>
                             
                 </div>
+                
             </div>
             <Sidebar/>
         </div>

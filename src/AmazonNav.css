@@ -15,6 +15,7 @@
 }
 .amazon-cont{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     
 }
@@ -34,6 +35,9 @@
     display: flex;
     align-items: center;
     border-radius: 24px;
+}
+.hide_search{
+    display: none;
 }
 .search_input{
     height: 10px;
@@ -115,6 +119,7 @@ ul, li , .link{
 }
 .amazon-cont{
     background-color: #131921;
+    
 }
 .hide{
     display: none;
@@ -160,5 +165,10 @@ ul, li , .link{
 @media (max-width:600px) {
     .order{
         display: none;
+    }
+   
+    .amazon-cont{
+        display: flex;
+        justify-content: space-between;
     }
 }
