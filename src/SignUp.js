@@ -1,5 +1,5 @@
 import "./SignUp.css"
-import React, {useState,useEffect } from 'react'
+import React, {useState } from 'react'
 import {Link, useNavigate } from 'react-router-dom'
 import { auth } from "./firebase";
 import {ToastContainer, toast} from 'react-toastify'
@@ -13,9 +13,7 @@ function SignUp() {
     const [ emailError, setEmailError] = useState("")
     const [loading, setLoading] = useState(false)
 
-    const handleSignupClick = () =>{
-        setLoading(true)
-    }
+    
    
         setTimeout(() => {
             setLoading(false)
@@ -24,12 +22,12 @@ function SignUp() {
       
    
    
-        const register =(e) => {
+        const register =e => {
             e.preventDefault();
             createUserWithEmailAndPassword(auth,email,password)
             .then((auth) => {
                 //succesfully created a new user with email and password
-                    navigate('/')
+                    navigate('/checkout')
             })
             .catch(error=> alert(error.message));
             toast.success("Sign Up successfull")
@@ -104,7 +102,7 @@ function SignUp() {
                               our Cookies Notice and our Interest-Based Ads Notice. 
                             </p>
                             
-                                <button className="login_registerButton" onclick={ register}>Create Your Amazon Account</button>
+                                <button className="login_registerButton" onclick={ register}>Create  Amazon Account</button>
                         </div>
                       <ToastContainer/>
             

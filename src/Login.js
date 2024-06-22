@@ -1,5 +1,5 @@
 import "./Login.css"
-import React, {useState,useEffect } from 'react'
+import React, {useState, useEffect } from 'react'
 import {Link, useNavigate } from 'react-router-dom'
 import { auth } from "./firebase";
 import {ToastContainer, toast} from 'react-toastify'
@@ -12,29 +12,34 @@ function Login() {
     const [password , setPassword] = useState('')
     const [PasswordError , setPasswordError] = useState("")
     const [ emailError, setEmailError] = useState("")
-    const [loading, setLoading] = useState(false)
+    
 
-    useEffect(()=>{
-        setTimeout(() => {
-           setLoading(false)
-       },6000)
-       
-   })
-        
-      
-   
-   
-    const signIn =(e) => {
+  
+
+    const signIn = e => {
         e.preventDefault();
+
+        
         signInWithEmailAndPassword(auth,email,password)
         .then(auth => {
             navigate('/')
         })
         .catch(error => alert(error.message));
-        toast.success("Sign In successfull")
+        toast.success("SignIn completed")
     }
 
-   
+    const register = e => {
+        e.preventDefault();
+        createUserWithEmailAndPassword(auth, email,password)
+        .then((auth) => {
+            //succesfully created a new user with email and password
+            if(auth){
+                navigate('/')
+            }
+        })
+        .catch(error=> alert(error.message));
+        toast.success(`SignUp Completed`)
+    }
     const handleEmailBlur =(e)=>{
         if(
             e.target.value === " " ||
@@ -73,7 +78,7 @@ function Login() {
 
 
                         <div className="login_container">
-                            <h1>Sign-in</h1>
+                            <h1>Sign-In/Up</h1>
 
                             <form>
                                 <h5>E-mail</h5>
@@ -90,7 +95,6 @@ function Login() {
                                     onChange={e =>setPassword(e.target.value)}
                                     onBlur={handlePasswordBlur}
                                     required
-                                    
                                 />
                               {PasswordError && <div className="error_message">{PasswordError}</div>}
                               <button type="submit" onClick={signIn} className="login_signInButton">Sign In</button>
@@ -100,12 +104,8 @@ function Login() {
                               By signing-in you agree to the AMAZON CLONE Condition of Use & Sale. Please see our Privacy Notice,
                               our Cookies Notice and our Interest-Based Ads Notice. 
                             </p>
-                            <Link to="/signup">
-                            {loading?(<Loader/>) : (
-                                <button className="login_registerButton" >Create Your Amazon Account</button>
-                            )}
-                                
-                            </Link>
+                                <button className="login_registerButton" onClick={register}>SignUp</button>
+                           
                         </div>
                       <ToastContainer/>
             
