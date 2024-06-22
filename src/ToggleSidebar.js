@@ -34,7 +34,6 @@ function ToggleSidebar(){
                 </div>
                 <div className='buttons'>
 
-                   
                     <Link to="/errorpage" ><IoIosHome/> <button className='side-btn'>Home</button></Link>
                     <Link to="/errorpage"><MdLightMode/> <button className='side-btn'>Theme</button></Link>
                     <Link to="/errorpage"> <FaFirstOrderAlt/> <button className='side-btn'>Orders</button></Link>
