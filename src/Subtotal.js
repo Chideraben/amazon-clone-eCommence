@@ -13,7 +13,7 @@ function Subtotal() {
             renderText = {(value) => (
                 <>
                 <p>
-                    subtotal ({basket.length} items) : <strong>{value}</strong>
+                    subtotal ({basket?.length} items) : <strong>{value}</strong>
 
                 </p>
                 <small className="subtotal_gift">
@@ -30,7 +30,7 @@ function Subtotal() {
             />
 
             <button>
-                <Link to="Amazon/errorpage">
+                <Link to="/errorpage">
                     Proceed to Checkout
                 </Link>
             </button>

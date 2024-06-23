@@ -3,9 +3,7 @@ import "./homepage.css"
 import Product from"./Product"
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
-
 function Homepage(){
-
     const [loading, setLoading] = useState(true)
 
 
@@ -13,9 +11,11 @@ function Homepage(){
     useEffect(()=>{
         setTimeout(() => {
            setLoading(false)
-       },6000)
+       },4000)
        
    })
+
+ 
    
     return(
         <div className="home">
@@ -28,11 +28,10 @@ function Homepage(){
                  
                 />
                {/* Here are the products*/}
+                    <Product 
+                    />
               
-                 <Product 
-                   rating={4}
-               
-                 />
+                
               
                   
                

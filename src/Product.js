@@ -4,8 +4,9 @@ import {FiShoppingCart} from "react-icons/fi"
 import { useStateValue } from "./Stateprovider"
 import { useNavigate } from "react-router";
 import axios from 'axios'
-function Product({id , title, rating, price, image}) {  
-      const [images ,setImages] = useState([])
+
+function Product(values) {  
+    const [images ,setImages] = useState([])
 
        const navigate = useNavigate()
     const [{basket,user}, dispatch] = useStateValue();
@@ -17,11 +18,11 @@ function Product({id , title, rating, price, image}) {
        else{ dispatch({
             type: "ADD_TO_BASKET",
             item:{
-                id:id,
-                title:title,
-                image:image,
-                price:price,
-                rating:rating,
+                id:values.id,
+                title:values.title,
+                image:values.image,
+                price:values.price,
+                rating:Math.floor(values.rating),
 
             }, });
        }
@@ -39,29 +40,33 @@ function Product({id , title, rating, price, image}) {
             catch(err){
                 console.log(err.message)
              }
-
+    
         }
-
-
+    
+    
         fetchimage()
     },[])
+
        
     return(
         <div className="home_row">
-             {images.map(values => {
+             {images.map((values) => {
             return(
                 <>
-                    <div className="product" key={values.id}>
+                    <div className="product" key={values} >
                         <div className="product_info">
                             <p className="title">{values.title}</p>
                                 <p className="product_price">
                                 <small>$</small>
                                 <strong>{values.price}</strong>
                             </p>
-  
+ 
                             <div className="product_rating">
-                             {Array(rating).fill().map((_,i) => (
-                                <p>🌟</p>
+                             {Array.from({ length : 
+                                (Math.floor(values.rating.rate))
+                             })
+                            .map((_,i) => (
+                                <p key={i}>⭐</p>
                                 ))} 
                                {/* {values.rating.rate} (Count:{values.rating.count})*/}
                             </div>
@@ -71,9 +76,8 @@ function Product({id , title, rating, price, image}) {
                         <button className="button" onClick={addToBasket}>Add to Cart <FiShoppingCart/></button>
                     </div>
                 </>
-            )
-          })}
-       
+                 )
+            })}
         </div>
     )
        
