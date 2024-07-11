@@ -10,7 +10,7 @@ import './Login'
 import ToggleSidebar from "./ToggleSidebar"
 import axios from 'axios'
 function AmazonNav(){
-   const [{basket, user}] = useStateValue();
+   const [{cart, user}] = useStateValue();
    const [query, setQuery] = useState('') 
    const [products, setProducts] = useState([])
 
@@ -102,7 +102,7 @@ function AmazonNav(){
                             <ul className="header_basket" >
                                 <FiShoppingCart className="basket"/>
                                 <span className=" header_numder">
-                                    {basket?.length}
+                                    {cart.length}
                                 </span>
                             </ul>
                            

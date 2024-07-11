@@ -5,27 +5,21 @@ import { useStateValue } from "./Stateprovider"
 import { useNavigate } from "react-router";
 import axios from 'axios'
 
-function Product(values) {  
-    const [images ,setImages] = useState([])
+function Product() {  
+    const [products ,setProducts] = useState([])
 
        const navigate = useNavigate()
-    const [{basket,user}, dispatch] = useStateValue();
-    const addToBasket = () => {
+    const [{cart,user}, dispatch] = useStateValue();
+    const addToCart = (product) => {
         if(!user){
             navigate("/login")
         }
         //dispatch the items into the data layer 
        else{ dispatch({
-            type: "ADD_TO_BASKET",
-            item:{
-                id:values.id,
-                title:values.title,
-                image:values.image,
-                price:values.price,
-                rating:Math.floor(values.rating),
-
-            }, });
-       }
+            type: "ADD_TO_CART",
+            item: product
+             });
+       };
            
     };
      
@@ -35,7 +29,7 @@ function Product(values) {
             try{
                 const response = await axios.get("https://fakestoreapi.com/products");       
                 const jsonData = await response.data;
-                 setImages(jsonData)
+                 setProducts(jsonData)
             }
             catch(err){
                 console.log(err.message)
@@ -50,20 +44,20 @@ function Product(values) {
        
     return(
         <div className="home_row">
-             {images.map((values) => {
+             {products.map((product) => {
             return(
                 <>
-                    <div className="product" key={values} >
+                    <div className="product" key={product.id} >
                         <div className="product_info">
-                            <p className="title">{values.title}</p>
+                            <p className="title">{product.title}</p>
                                 <p className="product_price">
                                 <small>$</small>
-                                <strong>{values.price}</strong>
+                                <strong>{product.price}</strong>
                             </p>
  
                             <div className="product_rating">
                              {Array.from({ length : 
-                                (Math.floor(values.rating.rate))
+                                (Math.floor(product.rating.rate))
                              })
                             .map((_,i) => (
                                 <p key={i}>⭐</p>
@@ -72,8 +66,8 @@ function Product(values) {
                             </div>
                         </div>
             
-                        <img src={values.image} alt=""/>
-                        <button className="button" onClick={addToBasket}>Add to Cart <FiShoppingCart/></button>
+                        <img src={product.image} alt=""/>
+                        <button className="button" onClick={()=>addToCart(product)}>Add to Cart <FiShoppingCart/></button>
                     </div>
                 </>
                  )

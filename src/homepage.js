@@ -28,13 +28,8 @@ function Homepage(){
                  
                 />
                {/* Here are the products*/}
-                    <Product 
-                    />
+                    <Product />
               
-                
-              
-                  
-               
             </div>
             )}
            

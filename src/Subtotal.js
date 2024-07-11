@@ -1,33 +1,29 @@
 import React from "react";
 import { useStateValue} from "./Stateprovider"
 import "./Subtotal.css"
-import { getBasketTotal } from "./reducer";
+import { getBasketTotal, getCartTotal } from "./reducer";
 import {Link } from 'react-router-dom'
 import  { NumberFormatBase } from 'react-number-format'
 function Subtotal() {
-    const [{basket}, dispatch] = useStateValue();
+    const [{cart}, dispatch] = useStateValue();
 
+    const getCartTotal = () => {
+        return cart.reduce((amount, item)=> item.price * item.quantity + amount, 0).toFixed(2)
+    }
     return(
         <div className="subtotal">
-            <NumberFormatBase
-            renderText = {(value) => (
+            
                 <>
-                <p>
-                    subtotal ({basket.length} items) : <strong>{value}</strong>
+                    <p>
+                        subtotal ({cart.length} items) : ${getCartTotal()}
 
-                </p>
-                <small className="subtotal_gift">
-                    <input type="checkbox" />This order contains a gift
-                </small>
+                    </p>
+                    <small className="subtotal_gift">
+                        <input type="checkbox" />This order contains a gift
+                    </small>
                 </>
-            )}
 
-            decimalScale={2}
-            value={getBasketTotal(basket)} 
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"$"}
-            />
+          
 
             <button>
                 <Link to="/errorpage">
